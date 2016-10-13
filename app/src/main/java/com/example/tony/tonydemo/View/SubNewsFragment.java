@@ -3,7 +3,9 @@ package com.example.tony.tonydemo.View;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.Toast;
 
@@ -119,6 +121,8 @@ public class SubNewsFragment extends BaseFragment implements NewsContract.INewsV
         //GridLayoutManager layoutManager = new GridLayoutManager(getActivity(),4);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rvNews.setLayoutManager(layoutManager);
+
+
         //rvNews.addItemDecoration(new RecycleViewDivider(getActivity()));
         rvNews.addItemDecoration(new RecycleViewDivider(getActivity()));
         rvNews.setAdapter(mAdapter);

@@ -3,8 +3,10 @@ package com.example.tony.tonydemo.View;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -159,9 +161,16 @@ public class BeautyFragment extends BaseFragment implements BeautyContract.IBeau
 //                });
             }
         };
+
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(),2);
         //LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        rvNews.setLayoutManager(layoutManager);
+
+
+
+        rvNews.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        rvNews.setItemAnimator(new DefaultItemAnimator());
+
+        //rvNews.setLayoutManager(layoutManager);
         //rvNews.addItemDecoration(new RecycleViewDivider(getActivity()));
         //rvNews.addItemDecoration(new RecycleViewDivider(getActivity()));
         rvNews.setAdapter(mAdapter);

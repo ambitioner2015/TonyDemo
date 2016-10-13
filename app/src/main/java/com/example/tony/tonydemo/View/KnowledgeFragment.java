@@ -27,11 +27,11 @@ import butterknife.ButterKnife;
  */
 public class KnowledgeFragment extends Fragment {
 
-//    @Bind(R.id.progressbar)
-//    ProgressBar progressbar;
+    @Bind(R.id.progressbar)
+    ProgressBar progressbar;
 
-    @Bind(R.id.spin_kit)
-    SpinKitView spin;
+//    @Bind(R.id.spin_kit)
+//    SpinKitView spin;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

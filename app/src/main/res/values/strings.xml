@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TonyDemo</string>
+    <string name="app_name">跃仔新闻</string>
     <!--底部菜单-->
     <string name="news">新闻</string>
     <string name="pictures">美图</string>
