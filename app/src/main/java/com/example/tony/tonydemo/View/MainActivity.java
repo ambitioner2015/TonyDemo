@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RadioButton;
 
+import com.example.tony.tonydemo.NewFramework.NetNewsFragment;
 import com.example.tony.tonydemo.R;
 
 import java.util.List;
