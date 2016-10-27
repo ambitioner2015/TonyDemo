@@ -1,22 +1,55 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/GridLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:columnCount="4"
     android:background="@color/white"
-    tools:context=".View.KnowledgeFragment">
+    android:rowCount="6">
 
-    <!--<com.github.ybq.android.spinkit.SpinKitView-->
-        <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-        <!--android:id="@+id/spin_kit"-->
-        <!--style="@style/SpinKitView.Large.FadingCircle"-->
-        <!--android:layout_width="100dp"-->
-        <!--android:layout_height="100dp"-->
-        <!--android:layout_gravity="center"-->
-        <!--app:SpinKit_Color="@color/colorAccent" />-->
+    <Button
+        android:text="自"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        ></Button>
 
-    <ProgressBar
-        android:id="@+id/progressbar"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
+    <Button
+        android:text="自"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        ></Button>
 
-</FrameLayout>
+    <Button
+        android:text="自"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        ></Button>
+
+    <Button
+        android:text="自"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        ></Button>
+    <Button
+        android:text="自定义动画"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        ></Button>
+    <Button
+        android:text="自定义动画"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        ></Button>
+
+    <Button
+        android:text="自定义动画"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        ></Button>
+    <Button
+        android:text="自定义动画"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        ></Button>
+
+</GridLayout>
