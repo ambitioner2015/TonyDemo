@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 
 import com.example.tony.tonydemo.Presenter.IPresenter;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -41,9 +42,7 @@ public abstract class BaseActivity extends FragmentActivity{
 
         IPresenter[] presenters = getPresenters();
         if(presenters != null){
-            for(int i = 0; i < presenters.length; i++){
-                mAllPresenters.add(presenters[i]);
-            }
+            Collections.addAll(mAllPresenters, presenters);
         }
     }
 

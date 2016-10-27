@@ -8,4 +8,5 @@
     <!--item_news-->
     <dimen name="news_image_width">86.0dip</dimen>
     <dimen name="news_image_height">60.0dip</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

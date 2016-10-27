@@ -1,5 +1,6 @@
 package com.example.tony.tonydemo.DB;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -41,6 +42,7 @@ public class NewsOpe {
         return createResult;
     }
 
+    @SuppressLint("Recycle")
     public ArrayList<News> getAllNews()
     {
         ArrayList<News> newlist = new ArrayList<>();
@@ -57,7 +59,7 @@ public class NewsOpe {
             newlist.add(tmp);
         }
         if (mCursor != null && !mCursor.isClosed()) {
-            mCursor.close();
+            //mCursor.close();
         }
         return newlist;
     }
@@ -75,7 +77,7 @@ public class NewsOpe {
     public News getNewsByTitle(String title)
     {
         ArrayList<News> newlist = new ArrayList<>();
-        Cursor mCursor = mDb.query(TABLE_NAME, new String[]{KEY_TITLE,KEY_WRITER,KEY_TIME},"title like ?",new String[]{"%你好%"},null,null,null);
+        @SuppressLint("Recycle") Cursor mCursor = mDb.query(TABLE_NAME, new String[]{KEY_TITLE,KEY_WRITER,KEY_TIME},"title like ?",new String[]{"%aaa%"},null,null,null);
 //        Cursor c = mDb.query(TABLE_NAME, new String[]{KEY_TITLE,KEY_WRITER,KEY_TIME},//select包含的字段   
 //                   "title = ?",//where条件表达式  
 //         new String[]{title},  //条件值  
@@ -93,7 +95,7 @@ public class NewsOpe {
             newlist.add(tmp);
         }
         if (mCursor != null && !mCursor.isClosed()) {
-            mCursor.close();
+            //mCursor.close();
         }
         return newlist.get(0);
     }

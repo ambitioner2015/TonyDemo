@@ -1,7 +1,12 @@
 package com.example.tony.tonydemo.View;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,15 +14,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tony.tonydemo.BaseFragment;
 import com.example.tony.tonydemo.DB.News;
 import com.example.tony.tonydemo.DB.NewsOpe;
+import com.example.tony.tonydemo.Model.Entity.Pilot;
 import com.example.tony.tonydemo.Presenter.IPresenter;
 import com.example.tony.tonydemo.R;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,6 +44,8 @@ public class AboutFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+
+
     @Bind(R.id.btnAddNews)
     Button btnAdd;
 
@@ -42,6 +54,16 @@ public class AboutFragment extends Fragment {
 
     @Bind(R.id.writer)
     EditText txtWriter;
+
+    @Bind(R.id.testpic)
+    ImageView img;
+
+    @Bind(R.id.btnAddPic)
+    Button btnAddPic;
+
+    @Bind(R.id.btnStartNew)
+    Button btnStart;
+
 
 
 
@@ -107,7 +129,6 @@ public class AboutFragment extends Fragment {
         NewsOpe newtmp = new NewsOpe(getActivity());
         boolean res = newtmp.deleteByTitle("你好");
 
-
         ArrayList<News> newslist = new ArrayList<>();
         newslist = newtmp.getAllNews();
 
@@ -119,8 +140,37 @@ public class AboutFragment extends Fragment {
     public void QueryNews()
     {
         NewsOpe newtmp = new NewsOpe(getActivity());
-        News tmp = newtmp.getNewsByTitle("你好");
+        News tmp = newtmp.getNewsByTitle("aaa");
         Log.e("result",tmp.getWriter()+"/"+tmp.getTitle());
+    }
+
+    @OnClick(R.id.btnAddPic)
+    public void makeLeak()
+    {
+        oom();
+    }
+
+
+    private static void oom(){
+        Map<String, Pilot> map = new HashMap<String, Pilot>();
+        Object[] array = new Object[1000000];
+        for(int i=0; i<1000000; i++){
+            String d = new Date().toString();
+            Pilot p = new Pilot(d, i);
+            map.put(i+"rosen jiang", p);
+            array[i]=p;
+        }
+    }
+
+    @OnClick(R.id.btnStartNew)
+    public void start()
+    {
+        startActivity(new Intent(getActivity(),LeakActivity.class));
+        // This async task is an anonymous class and therefore has a hidden reference to the outer
+        // class MainActivity. If the activity gets destroyed before the task finishes (e.g. rotation),
+        // the activity instance will leak.
+
+
     }
 
 }

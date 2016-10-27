@@ -25,10 +25,10 @@ public interface APIService {
     @POST("account/SignIn")
     Observable<LoginEntity> Login(@Field("moblie") String moblie, @Field("password") String password);
 
-    @GET("social")
+    @GET("guonei")
     Observable<HttpResult<List<NewsEntity>>> GetSocialNews(@Query("key") String key, @Query("page") int page, @Query("num") int num);
 
-    @GET("huabian")
+    @GET("world")
     Observable<HttpResult<List<NewsEntity>>> GetFunnyNews(@Query("key") String key, @Query("page") int page, @Query("num") int num);
 
     @GET("tiyu")

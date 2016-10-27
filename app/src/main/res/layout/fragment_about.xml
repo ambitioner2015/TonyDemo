@@ -1,18 +1,16 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal|top"
+    android:orientation="vertical"
     tools:context=".View.AboutFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal|top">
-
+        <ImageView
+            android:id="@+id/testpic"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp" />
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,5 +46,16 @@
             android:text="查询"
             android:id="@+id/btnQuery"
             android:layout_gravity="center_horizontal" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="增加图片"
+            android:id="@+id/btnAddPic"
+            android:layout_gravity="center_horizontal" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打开Activity"
+            android:id="@+id/btnStartNew"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
-</FrameLayout>

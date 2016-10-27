@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".TonyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -18,7 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.NewsContentActivity"></activity>
+        <activity android:name=".View.NewsContentActivity" />
+        <activity android:name=".View.LoginActivity"></activity>
+        <activity
+            android:name=".View.LeakActivity"
+            android:label="@string/title_activity_leak"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

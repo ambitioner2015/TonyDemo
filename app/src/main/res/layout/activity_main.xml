@@ -22,10 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"></TableRow>
     </FrameLayout>
     <include layout="@layout/bottom"></include>
 </android.support.design.widget.CoordinatorLayout>

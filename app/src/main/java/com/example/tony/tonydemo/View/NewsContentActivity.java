@@ -1,10 +1,9 @@
 package com.example.tony.tonydemo.View;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -12,17 +11,12 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.example.tony.tonydemo.R;
 import com.example.tony.tonydemo.widget.CustomProgressDialog;
-import com.github.ybq.android.spinkit.SpinKitView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnPageChange;
-import retrofit2.http.Url;
 
 public class NewsContentActivity extends AppCompatActivity {
     @Bind(R.id.toolbar)
@@ -31,9 +25,11 @@ public class NewsContentActivity extends AppCompatActivity {
     @Bind(R.id.webview)
     WebView webview;
 
+
     WebSettings webSettings;
 
     Context cxt = this;
+
     private CustomProgressDialog progressDialog = null;
 
     @Override
@@ -53,11 +49,12 @@ public class NewsContentActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("lll","导航点击了。。。。");
+                Log.e("lll", "导航点击了。。。。");
                 finish();
             }
         });
     }
+
     private void initView() {
         String tmp = getIntent().getExtras().getString("url");
         //CookieUtil.synCookies(this, Constant.AppWebBaseURL);
@@ -66,7 +63,6 @@ public class NewsContentActivity extends AppCompatActivity {
         //加上下面这段代码可以使网页中的链接不以浏览器的方式打开
         webview.setWebViewClient(new MyWebViewClient());
         webview.setWebChromeClient(new WebChromeClient());
-
 
 
         webview.getSettings().setBuiltInZoomControls(false);
@@ -85,7 +81,7 @@ public class NewsContentActivity extends AppCompatActivity {
         webSettings.setDomStorageEnabled(true);
 //        mwebview.setWebContentsDebuggingEnabled(true);
         //加载服务器上的页面
-        Log.e("url",tmp);
+        Log.e("url", tmp);
 
         webview.loadUrl("http://www.jianshu.com/p/b30a5c1c01e8");
     }
@@ -97,17 +93,17 @@ public class NewsContentActivity extends AppCompatActivity {
         }
 
         private String getparam(String url) {
-            if (url.equals("")||!url.contains("="))
+            if (url.equals("") || !url.contains("="))
                 return "";
             else {
                 int start = url.indexOf('=');
-                return url.substring(start+1, url.length());
+                return url.substring(start + 1, url.length());
             }
         }
 
         @Override
         public void onPageStarted(final WebView view, String url, Bitmap favicon) {
-            if (progressDialog == null){
+            if (progressDialog == null) {
                 progressDialog = CustomProgressDialog.createDialog(cxt);
             }
             progressDialog.setTitle("加载中....");
@@ -118,8 +114,8 @@ public class NewsContentActivity extends AppCompatActivity {
 
         @Override
         public void onPageFinished(WebView view, String url) {
-            Log.e("new","onPageFinished");
-            if (progressDialog != null){
+            Log.e("new", "onPageFinished");
+            if (progressDialog != null) {
                 progressDialog.dismiss();
                 progressDialog = null;
             }

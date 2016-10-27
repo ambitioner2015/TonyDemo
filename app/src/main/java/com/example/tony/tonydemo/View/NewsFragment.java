@@ -74,8 +74,8 @@ public class NewsFragment extends Fragment {
     private void initData() {
         mTitleList = new ArrayList<>();
         mFragmentList = new ArrayList<>();
-        mTitleList.add("头条");
-        mTitleList.add("娱乐");
+        mTitleList.add("国内");
+        mTitleList.add("国际");
         mTitleList.add("体育");
         mTitleList.add("健康");
 
