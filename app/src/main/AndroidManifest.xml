@@ -25,6 +25,10 @@
             android:name=".View.LeakActivity"
             android:label="@string/title_activity_leak"
             android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".View.AnimFrameActivity"
+            android:label="@string/title_activity_leak"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

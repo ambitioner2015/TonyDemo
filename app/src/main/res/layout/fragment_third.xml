@@ -8,7 +8,8 @@
     android:rowCount="6">
 
     <Button
-        android:text="自"
+        android:id="@+id/selfview"
+        android:text="自定义控件"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
         ></Button>
@@ -27,27 +28,6 @@
 
     <Button
         android:text="自"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        ></Button>
-    <Button
-        android:text="自定义动画"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        ></Button>
-    <Button
-        android:text="自定义动画"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        ></Button>
-
-    <Button
-        android:text="自定义动画"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        ></Button>
-    <Button
-        android:text="自定义动画"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
         ></Button>
