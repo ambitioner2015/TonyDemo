@@ -1,13 +1,13 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".View.BeautyFragment">
 
-    <in.srain.cube.views.ptr.PtrClassicFrameLayout
+    <in.srain.cube.views.ptr.PtrClassicFrameLayout xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
         android:id="@+id/material_style_ptr_frame"
-        xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         cube_ptr:ptr_duration_to_close="300"
@@ -16,11 +16,32 @@
         cube_ptr:ptr_pull_to_fresh="false"
         cube_ptr:ptr_ratio_of_header_height_to_refresh="1.2"
         cube_ptr:ptr_resistance="1.7">
-        <com.example.tony.tonydemo.widget.LoadMoreRecyclerView
-            android:id="@+id/rv_news"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></com.example.tony.tonydemo.widget.LoadMoreRecyclerView>
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.jude.rollviewpager.RollPagerView
+                android:id="@+id/rowllPager"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                app:rollviewpager_play_delay="3000" />
+
+            <com.example.tony.tonydemo.widget.SearchView
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="搜索"/>
+
+            <com.example.tony.tonydemo.widget.LoadMoreRecyclerView
+                android:id="@+id/rv_news"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/rowllPager"
+                android:padding="2dp" />
+        </RelativeLayout>
     </in.srain.cube.views.ptr.PtrClassicFrameLayout>
 
 </FrameLayout>

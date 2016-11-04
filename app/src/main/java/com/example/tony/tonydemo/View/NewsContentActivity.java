@@ -65,12 +65,6 @@ public class NewsContentActivity extends AppCompatActivity {
         webview.setWebChromeClient(new WebChromeClient());
 
 
-        webview.getSettings().setBuiltInZoomControls(false);
-        webview.getSettings().setJavaScriptEnabled(true);
-        webview.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
-        webview.getSettings().setBlockNetworkImage(true);
-
-
         //得到webview设置
         webSettings = webview.getSettings();
         //允许使用javascript

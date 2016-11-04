@@ -103,9 +103,9 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
     {
         RecyclerView.LayoutManager manager = mRecyclerView.getLayoutManager();
         if(manager instanceof StaggeredGridLayoutManager){
-            ViewGroup.LayoutParams params =  holder.itemView.getLayoutParams();//得到item的LayoutParams布局参数
-            params.height = heights.get((int) (Math.random()*3));//把随机的高度赋予item布局
-            holder.itemView.setLayoutParams(params);//把params设置给item布局
+//            ViewGroup.LayoutParams params =  holder.itemView.getLayoutParams();//得到item的LayoutParams布局参数
+//            params.height = heights.get((int) (Math.random()*3));//把随机的高度赋予item布局
+//            holder.itemView.setLayoutParams(params);//把params设置给item布局
             holder.updatePosition(position);
         }
         if(mDatas.size()>0&&position<mDatas.size()){

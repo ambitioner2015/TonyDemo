@@ -21,6 +21,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 public class ViewHolder extends RecyclerView.ViewHolder {
     private SparseArray<View> mViews;
@@ -95,25 +96,38 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     public ViewHolder setImageWithUrl(int viewId, String url) {
         ImageView view = getView(viewId);
-        Glide.with(mContext)
-                .load(url)
-                .centerCrop()
-                .crossFade()
-                .placeholder(R.mipmap.pic_loading)
-                .error(R.mipmap.pic_loading)
-                .into(view);
+//        Glide.with(mContext)
+//                .load(url)
+//                .centerCrop()
+//                .crossFade()
+//                .placeholder(R.mipmap.pic_loading)
+//                .error(R.mipmap.pic_loading)
+//                .into(view);
+        if(url!="") {
+            Picasso.with(mContext).load(url)
+                    .placeholder(R.mipmap.pic_loading)
+                    .error(R.mipmap.pic_loading)
+                    .into(view);
+        }
         return this;
     }
 
     public ViewHolder setImageWithUrlAndSize(int viewId, String url, int width, int height) {
         ImageView view = getView(viewId);
-        Glide.with(mContext)
-                .load(url)
-                .centerCrop()
-                .crossFade()
-                .placeholder(R.mipmap.pic_loading)
+//        Glide.with(mContext)
+//                .load(url)
+//                .centerCrop()
+//                .crossFade()
+//                .placeholder(R.mipmap.pic_loading)
+//
+//                .into(view);
 
-                .into(view);
+        if(url!="") {
+            Picasso.with(mContext).load(url)
+                    .placeholder(R.mipmap.pic_loading)
+                    .error(R.mipmap.pic_loading)
+                    .into(view);
+        }
         return this;
     }
 

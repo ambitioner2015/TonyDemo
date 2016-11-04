@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="ItemView">
-        <attr name="itemtext" format="string" />
-        <attr name="imgsrc" format="reference|color" />
-    </declare-styleable>
+<declare-styleable name="ItemView">
+    <attr name="itemtext" format="string" />
+    <attr name="imgsrc" format="reference|color" />
+</declare-styleable>
 </resources>

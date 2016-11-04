@@ -1,15 +1,13 @@
 package com.example.tony.tonydemo.View;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.tony.tonydemo.BaseAdapter;
@@ -21,13 +19,14 @@ import com.example.tony.tonydemo.Presenter.IPresenter;
 import com.example.tony.tonydemo.R;
 import com.example.tony.tonydemo.ViewHolder;
 import com.example.tony.tonydemo.widget.LoadMoreRecyclerView;
-import com.example.tony.tonydemo.widget.RecycleViewDivider;
+import com.jude.rollviewpager.RollPagerView;
+import com.jude.rollviewpager.adapter.StaticPagerAdapter;
+import com.jude.rollviewpager.hintview.TextHintView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
@@ -40,6 +39,9 @@ public class BeautyFragment extends BaseFragment implements BeautyContract.IBeau
     LoadMoreRecyclerView rvNews;
     @Bind(R.id.material_style_ptr_frame)
     PtrClassicFrameLayout mPtrFrame;
+
+    @Bind(R.id.rowllPager)
+    RollPagerView mRollPager;
     private BeautyPresenter mBeautyPresenter = new BeautyPresenter();
 
     private int currentPage = 1;
@@ -60,23 +62,6 @@ public class BeautyFragment extends BaseFragment implements BeautyContract.IBeau
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BeautyFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static BeautyFragment newInstance(String param1, String param2) {
-        BeautyFragment fragment = new BeautyFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,20 +83,6 @@ public class BeautyFragment extends BaseFragment implements BeautyContract.IBeau
         super.onDetach();
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 
     @Override
     protected int getLayoutResId() {
@@ -145,6 +116,8 @@ public class BeautyFragment extends BaseFragment implements BeautyContract.IBeau
 
     @Override
     public void initView() {
+        mRollPager.setHintView(new TextHintView(getActivity()));
+        mRollPager.setAdapter(new TestNomalAdapter());
         mNewsList = new ArrayList<>();
         mAdapter = new BaseAdapter<NewsEntity>(getActivity(),R.layout.item_fragment_beauty, mNewsList,rvNews) {
             @Override
@@ -162,17 +135,12 @@ public class BeautyFragment extends BaseFragment implements BeautyContract.IBeau
             }
         };
 
-        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(),2);
-        //LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-
-
-
         rvNews.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        //横向list
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+//        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+//        rvNews.setLayoutManager(linearLayoutManager);
         rvNews.setItemAnimator(new DefaultItemAnimator());
-
-        //rvNews.setLayoutManager(layoutManager);
-        //rvNews.addItemDecoration(new RecycleViewDivider(getActivity()));
-        //rvNews.addItemDecoration(new RecycleViewDivider(getActivity()));
         rvNews.setAdapter(mAdapter);
         initPtr();
 
@@ -217,5 +185,24 @@ public class BeautyFragment extends BaseFragment implements BeautyContract.IBeau
 //                mPtrFrame.autoRefresh();
 //            }
 //        }, 100);
+    }
+
+    private class TestNomalAdapter extends StaticPagerAdapter {
+        private int[] imgs = {R.mipmap.banner1,R.mipmap.banner2,R.mipmap.banner3
+        };
+
+        @Override
+        public View getView(ViewGroup container, int position) {
+            ImageView view = new ImageView(container.getContext());
+            view.setImageResource(imgs[position]);
+            view.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            return view;
+        }
+
+        @Override
+        public int getCount() {
+            return imgs.length;
+        }
     }
 }
