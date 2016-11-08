@@ -9,13 +9,13 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.tony.tonydemo.BaseAdapter;
-import com.example.tony.tonydemo.BaseFragment;
 import com.example.tony.tonydemo.Contract.NewsContract;
 import com.example.tony.tonydemo.Model.Entity.NewsEntity;
 import com.example.tony.tonydemo.Presenter.IPresenter;
 import com.example.tony.tonydemo.Presenter.NewsPresenter;
 import com.example.tony.tonydemo.R;
 import com.example.tony.tonydemo.ViewHolder;
+import com.example.tony.tonydemo.MVPFragment;
 import com.example.tony.tonydemo.widget.RecycleViewDivider;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ import butterknife.Bind;
 /**
  * Created by lzy on 2016/8/10.
  */
-public class FunnyFragment extends BaseFragment implements NewsContract.INewsView{
+public class FunnyFragment extends MVPFragment implements NewsContract.INewsView{
 
     @Bind(R.id.swipe_refresh_widget)
     SwipeRefreshLayout mSwipLayout;

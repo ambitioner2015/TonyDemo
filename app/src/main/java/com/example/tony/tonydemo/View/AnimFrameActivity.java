@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.example.tony.tonydemo.R;
+import com.example.tony.tonydemo.widget.NumProgress;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -17,6 +18,9 @@ public class AnimFrameActivity extends AppCompatActivity {
 
     AnimationDrawable animationDrawable;
 
+    @Bind(R.id.progressNum)
+    NumProgress mProgress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,5 +30,6 @@ public class AnimFrameActivity extends AppCompatActivity {
         animationDrawable = (AnimationDrawable) animView.getDrawable();
         //开始动画
         animationDrawable.start();
+        mProgress.start();
     }
 }

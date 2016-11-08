@@ -3,14 +3,10 @@ package com.example.tony.tonydemo.View;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.tony.tonydemo.BaseAdapter;
-import com.example.tony.tonydemo.BaseFragment;
 import com.example.tony.tonydemo.Contract.NewsContract;
 import com.example.tony.tonydemo.Model.Entity.NewsEntity;
 import com.example.tony.tonydemo.Presenter.IPresenter;
@@ -18,6 +14,7 @@ import com.example.tony.tonydemo.Presenter.NewsPresenter;
 import com.example.tony.tonydemo.R;
 import com.example.tony.tonydemo.ViewHolder;
 import com.example.tony.tonydemo.widget.LoadMoreRecyclerView;
+import com.example.tony.tonydemo.MVPFragment;
 import com.example.tony.tonydemo.widget.RecycleViewDivider;
 
 import java.util.ArrayList;
@@ -30,7 +27,7 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
 
 
-public class SubNewsFragment extends BaseFragment implements NewsContract.INewsView{
+public class SubNewsFragment extends MVPFragment implements NewsContract.INewsView{
 
     @Bind(R.id.rv_news)
     LoadMoreRecyclerView rvNews;
@@ -95,7 +92,7 @@ public class SubNewsFragment extends BaseFragment implements NewsContract.INewsV
 
     @Override
     public void showError(Throwable e) {
-        Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG);
+
     }
 
     @Override

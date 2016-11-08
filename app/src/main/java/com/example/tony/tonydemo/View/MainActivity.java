@@ -85,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
             case 1:
                 if (mTab02 == null)
                 {
-                    mTab02 = new BeautyFragment();transaction.add(R.id.id_content, mTab02);
+                    mTab02 = new BeautyFragment();
+                    transaction.add(R.id.id_content, mTab02);
                 } else
                 {
                     transaction.show(mTab02);

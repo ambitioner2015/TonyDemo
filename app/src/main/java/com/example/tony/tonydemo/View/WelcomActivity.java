@@ -1,5 +1,6 @@
 package com.example.tony.tonydemo.View;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
@@ -18,7 +19,7 @@ import java.util.TimerTask;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class WelcomActivity extends AppCompatActivity {
+public class WelcomActivity extends Activity {
 
     @Bind(R.id.welcomeImg)
     ImageView mImageView;
@@ -30,7 +31,7 @@ public class WelcomActivity extends AppCompatActivity {
         //去除title
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         //去掉Activity上面的状态栏
-        getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN , WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN , WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_welcom);
         ButterKnife.bind(this);
         mHandler = new WelcomeHandler(this);

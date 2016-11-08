@@ -48,6 +48,10 @@
         app:itemtext="照片">
 
     </com.example.tony.tonydemo.widget.ItemView>
-
+    <com.example.tony.tonydemo.widget.NumProgress
+        android:id="@+id/progressNum"
+        android:layout_below="@id/animView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

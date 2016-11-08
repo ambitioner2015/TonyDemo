@@ -23,11 +23,11 @@
         <activity
             android:name=".View.AnimFrameActivity"
             android:label="@string/title_activity_leak"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".View.WelcomActivity">
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".View.WelcomActivity"
+            android:theme="@style/Appwelcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

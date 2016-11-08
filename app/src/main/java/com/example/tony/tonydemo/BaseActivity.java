@@ -39,7 +39,6 @@ public abstract class BaseActivity extends FragmentActivity{
     }
 
     private void addPresenters(){
-
         IPresenter[] presenters = getPresenters();
         if(presenters != null){
             Collections.addAll(mAllPresenters, presenters);

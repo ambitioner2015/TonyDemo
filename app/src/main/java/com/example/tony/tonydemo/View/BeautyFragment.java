@@ -1,18 +1,15 @@
 package com.example.tony.tonydemo.View;
 
 import android.net.Uri;
-import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.tony.tonydemo.BaseAdapter;
-import com.example.tony.tonydemo.BaseFragment;
 import com.example.tony.tonydemo.Contract.BeautyContract;
+import com.example.tony.tonydemo.MVPFragment;
 import com.example.tony.tonydemo.Model.Entity.NewsEntity;
 import com.example.tony.tonydemo.Presenter.BeautyPresenter;
 import com.example.tony.tonydemo.Presenter.IPresenter;
@@ -33,7 +30,7 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
 
 
-public class BeautyFragment extends BaseFragment implements BeautyContract.IBeautyView {
+public class BeautyFragment extends MVPFragment implements BeautyContract.IBeautyView {
 
     @Bind(R.id.rv_news)
     LoadMoreRecyclerView rvNews;
@@ -62,17 +59,6 @@ public class BeautyFragment extends BaseFragment implements BeautyContract.IBeau
         // Required empty public constructor
     }
 
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Toast.makeText(getContext(),"wozaizheli",Toast.LENGTH_LONG);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
 
@@ -89,15 +75,15 @@ public class BeautyFragment extends BaseFragment implements BeautyContract.IBeau
         return R.layout.fragment_image;
     }
 
-    @Override
+
     protected IPresenter[] getPresenters() {
         return new IPresenter[]{ mBeautyPresenter};
     }
 
-    @Override
     protected void onInitPresenters() {
         mBeautyPresenter.init(this);
     }
+
 
     @Override
     public void showInfo(List<NewsEntity> list) {
@@ -111,7 +97,7 @@ public class BeautyFragment extends BaseFragment implements BeautyContract.IBeau
 
     @Override
     public void showError(Throwable e) {
-        Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG);
+
     }
 
     @Override
