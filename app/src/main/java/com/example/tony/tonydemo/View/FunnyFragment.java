@@ -1,9 +1,13 @@
 package com.example.tony.tonydemo.View;
 
+import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Toast;
@@ -34,6 +38,7 @@ public class FunnyFragment extends MVPFragment implements NewsContract.INewsView
     @Bind(R.id.rv_newslist)
     RecyclerView mRecylerView;
 
+    private String TAG= "FunnyNewsFragment";
     LinearLayoutManager mLayoutManager;
     private BaseAdapter mAdapter;
     int lastVisibleItem;
@@ -134,7 +139,42 @@ public class FunnyFragment extends MVPFragment implements NewsContract.INewsView
         mRecylerView.setAdapter(mAdapter);
 
         // 此处在现实项目中，请换成网络请求数据代码，sendRequest .....
+
+    }
+
+    @Override
+    protected void lazyLoad() {
         mNewsPresenter.GetNewsList(0,currentPage,size);
         currentPage++;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Log.e(TAG,"onActivityCreated");
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.e(TAG,"onAttach");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.e(TAG,"onDetach");
+    }
+
+//    @Override
+//    public void onDestroyView() {
+//        super.onDestroyView();
+//        Log.e(TAG,"onDestroyView");
+//    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.e(TAG,"onDestroy");
     }
 }

@@ -53,16 +53,16 @@ public class NewsFragment extends BaseFragment {
         mTitleList.add("体育");
         mTitleList.add("健康");
 
-        for(int i=0;i<mTitleList.size();i++)
-        {
-            mFragmentList.add(SubNewsFragment.newInstance(i));
-            Log.e("666",String.valueOf(i));
-        }
+        mFragmentList.add(new DomNewsFragment());
+        mFragmentList.add(new INTNewsFragment());
+        mFragmentList.add(new SportNewsFragment());
+        mFragmentList.add(new FunnyFragment());
     }
 
     @Override
     protected void initView() {
         mAdapter = new fAdpter(getChildFragmentManager());
+        mViewPager.setOffscreenPageLimit(4);
         mViewPager.setAdapter(mAdapter);
         mTabSelector.setupWithViewPager(mViewPager);
         mTabSelector.setTabMode(TabLayout.MODE_SCROLLABLE);

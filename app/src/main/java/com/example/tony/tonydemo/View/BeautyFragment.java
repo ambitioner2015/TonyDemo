@@ -138,10 +138,6 @@ public class BeautyFragment extends MVPFragment implements BeautyContract.IBeaut
             }
         });
 
-
-        mBeautyPresenter.GetBeautyList(currentPage,size);
-        currentPage++;
-
     }
 
     private void initPtr() {
@@ -190,5 +186,11 @@ public class BeautyFragment extends MVPFragment implements BeautyContract.IBeaut
         public int getCount() {
             return imgs.length;
         }
+    }
+
+    @Override
+    protected void lazyLoad() {
+        mBeautyPresenter.GetBeautyList(currentPage,size);
+        currentPage++;
     }
 }

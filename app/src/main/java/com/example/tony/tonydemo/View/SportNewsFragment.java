@@ -11,13 +11,13 @@ import android.view.View;
 
 import com.example.tony.tonydemo.BaseAdapter;
 import com.example.tony.tonydemo.Contract.NewsContract;
+import com.example.tony.tonydemo.MVPFragment;
 import com.example.tony.tonydemo.Model.Entity.NewsEntity;
 import com.example.tony.tonydemo.Presenter.IPresenter;
 import com.example.tony.tonydemo.Presenter.NewsPresenter;
 import com.example.tony.tonydemo.R;
 import com.example.tony.tonydemo.ViewHolder;
 import com.example.tony.tonydemo.widget.LoadMoreRecyclerView;
-import com.example.tony.tonydemo.MVPFragment;
 import com.example.tony.tonydemo.widget.RecycleViewDivider;
 
 import java.util.ArrayList;
@@ -30,13 +30,13 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
 
 
-public class SubNewsFragment extends MVPFragment implements NewsContract.INewsView{
+public class SportNewsFragment extends MVPFragment implements NewsContract.INewsView{
 
     @Bind(R.id.rv_news)
     LoadMoreRecyclerView rvNews;
     @Bind(R.id.material_style_ptr_frame)
     PtrClassicFrameLayout mPtrFrame;
-    private String TAG = "SubNewsFragment";
+    private String TAG = "SportNewsFragment";
     private NewsPresenter mNewsPresenter = new NewsPresenter();
     private int currentPage = 1;
     private int size = 20;
@@ -50,14 +50,14 @@ public class SubNewsFragment extends MVPFragment implements NewsContract.INewsVi
     // TODO: Rename and change types of parameters
     private int index;
 
-    public SubNewsFragment() {
+    public SportNewsFragment() {
         // Required empty public constructor
     }
 
 
     // TODO: Rename and change types and number of parameters
-    public static SubNewsFragment newInstance(int index) {
-        SubNewsFragment fragment = new SubNewsFragment();
+    public static SportNewsFragment newInstance(int index) {
+        SportNewsFragment fragment = new SportNewsFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_INDEX, index);
         fragment.setArguments(args);
@@ -196,11 +196,11 @@ public class SubNewsFragment extends MVPFragment implements NewsContract.INewsVi
         Log.e(TAG,"onDestory");
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        Log.e(TAG,"onDestroyView");
-    }
+//    @Override
+//    public void onDestroyView() {
+//        super.onDestroyView();
+//        Log.e(TAG,"onDestroyView");
+//    }
 
     @Override
     public void onAttach(Context context) {

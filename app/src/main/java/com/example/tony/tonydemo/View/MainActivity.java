@@ -82,40 +82,40 @@ public class MainActivity extends AppCompatActivity {
                 }
                 mTabs.get(0).setCompoundDrawablesWithIntrinsicBounds(0,R.mipmap.tab_comprehensive_pressed_icon, 0, 0);
                 break;
-            case 1:
-                if (mTab02 == null)
-                {
-                    mTab02 = new BeautyFragment();
-                    transaction.add(R.id.id_content, mTab02);
-                } else
-                {
-                    transaction.show(mTab02);
-
-                }
-                mTabs.get(1).setCompoundDrawablesWithIntrinsicBounds(0,R.mipmap.tab_move_pressed_icon, 0, 0);
-                break;
-            case 2:
-                if (mTab03 == null)
-                {
-                    mTab03 = new KnowledgeFragment();
-                    transaction.add(R.id.id_content, mTab03);
-                } else
-                {
-                    transaction.show(mTab03);
-                }
-                mTabs.get(2).setCompoundDrawablesWithIntrinsicBounds(0,R.mipmap.tab_found_pressed_icon, 0, 0);
-                break;
-            case 3:
-                if (mTab04 == null)
-                {
-                    mTab04 = new AboutFragment();
-                    transaction.add(R.id.id_content, mTab04);
-                } else
-                {
-                    transaction.show(mTab04);
-                }
-                mTabs.get(3).setCompoundDrawablesWithIntrinsicBounds(0,R.mipmap.tab_me_pressed_icon, 0, 0);
-                break;
+//            case 1:
+//                if (mTab02 == null)
+//                {
+//                    mTab02 = new BeautyFragment();
+//                    transaction.add(R.id.id_content, mTab02);
+//                } else
+//                {
+//                    transaction.show(mTab02);
+//
+//                }
+//                mTabs.get(1).setCompoundDrawablesWithIntrinsicBounds(0,R.mipmap.tab_move_pressed_icon, 0, 0);
+//                break;
+//            case 2:
+//                if (mTab03 == null)
+//                {
+//                    mTab03 = new KnowledgeFragment();
+//                    transaction.add(R.id.id_content, mTab03);
+//                } else
+//                {
+//                    transaction.show(mTab03);
+//                }
+//                mTabs.get(2).setCompoundDrawablesWithIntrinsicBounds(0,R.mipmap.tab_found_pressed_icon, 0, 0);
+//                break;
+//            case 3:
+//                if (mTab04 == null)
+//                {
+//                    mTab04 = new AboutFragment();
+//                    transaction.add(R.id.id_content, mTab04);
+//                } else
+//                {
+//                    transaction.show(mTab04);
+//                }
+//                mTabs.get(3).setCompoundDrawablesWithIntrinsicBounds(0,R.mipmap.tab_me_pressed_icon, 0, 0);
+//                break;
 
             default:
                 break;
