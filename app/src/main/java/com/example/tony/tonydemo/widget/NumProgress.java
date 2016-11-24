@@ -93,11 +93,15 @@ public class NumProgress extends View {
         Log.e("onMeasure","height"+String.valueOf(heightSpecSize));
 
         if (widthSpecMode == MeasureSpec.AT_MOST && heightSpecMode == MeasureSpec.AT_MOST) {
-            setMeasuredDimension(200, 200);
+            mWidth = 400;
+            mHeight=400;
+            setMeasuredDimension(400, 400);
         } else if (widthSpecMode == MeasureSpec.AT_MOST) {
-            setMeasuredDimension(200, heightSpecSize);
+            mWidth = 400;
+            setMeasuredDimension(400, heightSpecSize);
         } else if (heightSpecMode == MeasureSpec.AT_MOST) {
-            setMeasuredDimension(widthSpecSize, 200);
+            mHeight = 400;
+            setMeasuredDimension(widthSpecSize, 400);
         }
     }
 

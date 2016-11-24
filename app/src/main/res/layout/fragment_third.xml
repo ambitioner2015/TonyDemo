@@ -16,6 +16,7 @@
 
     <Button
         android:text="自"
+        android:id="@+id/btnMove"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
         ></Button>

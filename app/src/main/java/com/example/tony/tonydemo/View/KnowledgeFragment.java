@@ -102,9 +102,23 @@ public class KnowledgeFragment extends Fragment {
         ButterKnife.unbind(this);
     }
 
-    @OnClick(R.id.selfview)
-    public void OnClick()
+    @OnClick({R.id.selfview,R.id.btnMove})
+    public void OnClick(View v)
     {
-        startActivity(new Intent(getActivity(),AnimFrameActivity.class));
+        switch (v.getId())
+        {
+            case R.id.selfview:
+                startActivity(new Intent(getActivity(),AnimFrameActivity.class));
+                break;
+            case R.id.btnMove:
+                startActivity(new Intent(getActivity(),MoveActivity.class));
+                break;
+
+
+        }
+
+
     }
+
+
 }
